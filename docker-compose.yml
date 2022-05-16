@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  # mongo:
+  #   restart: unless-stopped
+  #   image: mongo:latest
+    
+  #   environment:
+  #     - MONGO_INIT_DB_ROOT_USERNAME=admin
+  #     - MONGO_INIT_DB_ROOT_PASSWORD=admin
+  
+  bot:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # mount config.json to /app/config.json
+    volumes:
+      - ./config.json:/app/config.json
